@@ -1,5 +1,7 @@
 import Head from 'next/head';
 import Image from 'next/image';
+import Script from 'next/script';
+
 import Container from '../components/Container/Container';
 import Header from '../components/Header';
 import Button from '../components/Button/Button';
@@ -25,6 +27,7 @@ export default function Home() {
             {products.map((product) => (
               <li key={product.id}>
                 <Image
+                  priority="true"
                   width="864"
                   height="1200"
                   src={product.image}
@@ -33,7 +36,17 @@ export default function Home() {
                 <h3 className={styles.productTitle}>{product.title}</h3>
                 <p className={styles.productPrice}>${product.price}</p>
                 <p>
-                  <Button>Add to Cart</Button>
+                  <Button
+                    styleName="snipcart-add-item"
+                    data-item-id={product.id}
+                    data-item-price={product.price}
+                    data-item-url="/"
+                    data-item-description=""
+                    data-item-image={product.image}
+                    data-item-name={product.title}
+                  >
+                    Add to Cart
+                  </Button>
                 </p>
               </li>
             ))}

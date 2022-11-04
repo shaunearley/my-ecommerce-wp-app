@@ -7,8 +7,10 @@ const Header = () => (
     <Container styleName={styles.headerContainer}>
       <p className={styles.headerTitle}>Hyper Bros. Trading Cards</p>
       <p className={styles.headerCart}>
-        <IconCart />
-        $0.00
+        <button type="button" className="snipcart-checkout">
+          <IconCart />
+          <span className="snipcart-total-price">$0.00</span>
+        </button>
       </p>
     </Container>
   </header>
